@@ -1,0 +1,2 @@
+1. what is an object?
+--> an object is a collection of properties, where each property is a key-value pair. the key is a string (or a symbol), and the value can by anything, including another object, function, or primitive data type.

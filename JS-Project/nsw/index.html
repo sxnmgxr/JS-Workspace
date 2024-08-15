@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JavaScript Objects Playground</title>
+  </head>
+  <body>
+    <!-- Number Object: Basic Calculator -->
+    <div>
+      <h3>Number Object: Basic Calculator</h3>
+      <label for="num1">Number 1:</label>
+      <input type="number" id="num1" />
+      <label for="num2">Number 2:</label>
+      <input type="number" id="num2" />
+      <button onclick="performCalculation('add')">Add</button>
+      <button onclick="performCalculation('subtract')">Subtract</button>
+      <button onclick="performCalculation('multiply')">Multiply</button>
+      <button onclick="performCalculation('divide')">Divide</button>
+      <p id="result"></p>
+    </div>
+
+    <!-- String Object: String Manipulation -->
+    <div>
+      <h3>String Object: String Manipulation</h3>
+      <label for="str1">String 1:</label>
+      <input type="text" id="str1" />
+      <label for="str2">String 2:</label>
+      <input type="text" id="str2" />
+      <button onclick="concatenateStrings()">Concatenate</button>
+      <p id="stringResult"></p>
+    </div>
+
+    <!-- Math Object: Random Number Generator -->
+    <div>
+      <h3>Math Object: Random Number Generator</h3>
+      <button onclick="generateRandomNumber()">Generate Random Number</button>
+      <p id="randomNumberResult"></p>
+    </div>
+
+    <!-- Boolean Object: Logical Operations -->
+    <div>
+      <h3>Boolean Object: Logical Operations</h3>
+      <input type="checkbox" id="checkbox1" /> Option 1<br />
+      <input type="checkbox" id="checkbox2" /> Option 2<br />
+      <button onclick="performLogicalOperation()">Check Logical AND</button>
+      <p id="booleanResult"></p>
+    </div>
+
+    <!-- Date Object: Age Calculator -->
+    <div>
+      <h3>Date Object: Age Calculator</h3>
+      <label for="birthYear">Enter your birth year:</label>
+      <input type="number" id="birthYear" />
+      <button onclick="calculateAge()">Calculate Age</button>
+      <p id="ageResult"></p>
+    </div>
+
+    <script>
+      // Number Object: Basic Calculator
+      function performCalculation(operation) {
+        const num1 = parseFloat(document.getElementById("num1").value);
+        const num2 = parseFloat(document.getElementById("num2").value);
+        let result;
+        if (!isNaN(num1) && !isNaN(num2)) {
+          switch (operation) {
+            case "add":
+              result = num1 + num2;
+              break;
+            case "subtract":
+              result = num1 - num2;
+              break;
+            case "multiply":
+              result = num1 * num2;
+              break;
+            case "divide":
+              result = num2 !== 0 ? num1 / num2 : "Cannot divide by zero";
+              break;
+            default:
+              result = "Invalid operation";
+          }
+          document.getElementById("result").innerText = `Result: ${result}`;
+        } else {
+          document.getElementById("result").innerText =
+            "Invalid input. Please enter numbers.";
+        }
+      }
+
+      // String Object: String Manipulation
+      function concatenateStrings() {
+        const str1 = document.getElementById("str1").value;
+        const str2 = document.getElementById("str2").value;
+        const result = str1 + str2;
+        document.getElementById("stringResult").innerText = `Result: ${result}`;
+      }
+
+      // Math Object: Random Number Generator
+      function generateRandomNumber() {
+        const randomNumber = Math.floor(Math.random() * 100) + 1;
+        document.getElementById(
+          "randomNumberResult"
+        ).innerText = `Random Number: ${randomNumber}`;
+      }
+
+      // Boolean Object: Logical Operations
+      function performLogicalOperation() {
+        const option1 = document.getElementById("checkbox1").checked;
+        const option2 = document.getElementById("checkbox2").checked;
+        const result = option1 && option2;
+        document.getElementById(
+          "booleanResult"
+        ).innerText = `Logical AND Result: ${result}`;
+      }
+
+      // Date Object: Age Calculator
+      function calculateAge() {
+        const birthYear = parseInt(document.getElementById("birthYear").value);
+        const currentYear = new Date().getFullYear();
+        const age = currentYear - birthYear;
+        document.getElementById("ageResult").innerText = `Your Age: ${age}`;
+      }
+    </script>
+  </body>
+</html>

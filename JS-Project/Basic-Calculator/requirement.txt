@@ -1,0 +1,5 @@
+Number Object: Basic Calculator
+
+#create an input form with two fields for entering numeric values.
+#include buttons for addition, subtraction, multiplication, and division.
+#display the result dynamically on the web page using the number object.
